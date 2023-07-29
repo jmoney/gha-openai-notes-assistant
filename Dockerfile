@@ -4,6 +4,6 @@ ADD main.py /app/main.py
 COPY bin /app/bin
 
 RUN apk update
-RUN apk add --no-cache python3 github-cli
+RUN apk add --no-cache python3
 
 ENTRYPOINT [ "/app/bin/entrypoint.sh" ]
