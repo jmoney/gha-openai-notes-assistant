@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python3 main.py --assistant $2 --file $3 --output $4
+python3 main.py --assistant $1 --file $2 --output $3
