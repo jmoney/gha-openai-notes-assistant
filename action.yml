@@ -7,6 +7,9 @@ inputs:
   file:
     description: 'File to generate content from'
     required: true
+  format:
+    description: 'Format of the input file'
+    required: true
   output:
     description: 'Output file'
     required: true

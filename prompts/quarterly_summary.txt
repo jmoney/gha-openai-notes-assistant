@@ -1,2 +1,2 @@
-Given the following markdown formatted of completed task list summarize in 3 sentences in the first person
+Given the following json formatted of completed task list summarize in 3 sentences in the first person
 {completed_tasks}
