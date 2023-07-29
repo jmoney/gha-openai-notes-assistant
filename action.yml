@@ -1,0 +1,23 @@
+name: 'gha-openai-notes-assistant'
+description: 'OpenAI Notes Assistant'
+inputs:
+  openai-api-key:
+    description: 'OpenAI API Key'
+    required: true
+  assistant:
+    description: 'The notes assistant to run'
+    required: true
+  file:
+    description: 'File to generate content from'
+    required: true
+  output:
+    description: 'Output file'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.token }}
+    - ${{ inputs.assistant }}
+    - ${{ inputs.file }}
+    - ${{ inputs.output }}

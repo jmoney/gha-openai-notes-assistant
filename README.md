@@ -1,1 +1,1 @@
-# gha-openai-completion
+# gha-openai-notes-assistant

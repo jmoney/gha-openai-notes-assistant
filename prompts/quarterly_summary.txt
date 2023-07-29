@@ -1,0 +1,2 @@
+Given the following markdown formatted task list that I completed summarize in one paragraph
+{completed_tasks}
