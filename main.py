@@ -16,4 +16,5 @@ if __name__ == "__main__":
             with(open("./prompts/quarterly_summary.txt", "r")) as f:
                 prompt_template = f.read()
                 chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt_template.format(completed_tasks=content)}])
-                print(chat_completion.choices[0].message.content)
+                # print(chat_completion.choices[0].message.content)
+                print(chat_completion)
