@@ -1,5 +1,6 @@
 import argparse
 import openai
+import sys
 
 if __name__ == "__main__":
 
@@ -10,8 +11,11 @@ if __name__ == "__main__":
 
     with(open(args.file, "r")) as f:
         content = f.read()
-        if args.assistant == "quarterly_summary":
+        if args.assistant == "quarterly_review":
             with(open("./prompts/quarterly_summary.txt", "r")) as f:
                 prompt_template = f.read()
                 chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt_template.format(completed_tasks=content)}])
                 print(chat_completion.choices[0].message.content)
+        else:
+            print("Unknown assistant")
+            sys.exit(1)
