@@ -16,7 +16,7 @@ if __name__ == "__main__":
         if args.assistant == "quarterly_review":
             with(open(f"{args.prompts_dir}/quarterly_summary.txt", "r")) as f:
                 prompt_template = f.read()
-                chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt_template.format(completed_tasks=content)}])
+                chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", temperature=0.7, messages=[{"role": "user", "content": prompt_template.format(completed_tasks=content)}])
                 output = {}
                 output["content"] = chat_completion.choices[0].message.content
                 print(json.dumps(output))
