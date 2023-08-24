@@ -12,18 +12,23 @@ if __name__ == "__main__":
     args = prog.parse_args()
 
     with(open(args.file, "r")) as f:
-        content = f.read()
+        content = f.read() 
         if args.assistant == "quarterly_review":
             with(open(f"{args.prompts_dir}/quarterly_summary.txt", "r")) as f:
                 prompt_template = f.read()
-                chat_completion = openai.ChatCompletion.create(
-                    model="gpt-4", 
-                    max_tokens=1000,
-                    temperature=0.7, 
-                    messages=[{"role": "user", "content": prompt_template.format(completed_tasks=content)}])
-                output = {}
-                output["content"] = chat_completion.choices[0].message.content
-                print(json.dumps(output))
+                work = json.loads(content)
+                for item in work:       
+                    chat_completion = openai.ChatCompletion.create(
+                        model="gpt-4", 
+                        max_tokens=1000,
+                        temperature=0.7, 
+                        messages=[{"role": "user", "content": prompt_template.format(completed_tasks=work[item]["completed_tasks"])}])
+                    output = {}
+                    output[f"{item}_content"] = chat_completion.choices[0].message.content
+                summary = ""
+                for value in output:
+                    summary += value + "\n"
+                print(json.dumps({"content": summary}))
         else:
             print("Unknown assistant", file=sys.stderr)
             sys.exit(1)
