@@ -1,2 +1,2 @@
-Please summarieze the following JSON formatted work for a quarterly review
+Please summarieze the following content for a quarterly review
 {completed_tasks}
