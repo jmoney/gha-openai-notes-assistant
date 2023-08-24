@@ -22,7 +22,7 @@ if __name__ == "__main__":
                         model="gpt-4", 
                         max_tokens=1000,
                         temperature=0.7, 
-                        messages=[{"role": "user", "content": prompt_template.format(completed_tasks=work[item]["completed_tasks"])}])
+                        messages=[{"role": "user", "content": prompt_template.format(completed_tasks=work[item])}])
                     output = {}
                     output[f"{item}_content"] = chat_completion.choices[0].message.content
                 summary = ""
