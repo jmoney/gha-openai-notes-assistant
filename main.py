@@ -27,7 +27,8 @@ if __name__ == "__main__":
                     output[f"{item}_content"] = chat_completion.choices[0].message.content
                 summary = ""
                 for value in output:
-                    summary += output[value] + "\n"
+                    summary += output[value]
+                    summary += "\n"
                 print(json.dumps({"content": summary}))
         else:
             print("Unknown assistant", file=sys.stderr)
