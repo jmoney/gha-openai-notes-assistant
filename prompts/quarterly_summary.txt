@@ -1,2 +1,2 @@
-Given the following json formatted task list that I completed summarize in one paragraph in engineering speak
+Please summarieze the following JSON formatted work for a quarterly review
 {completed_tasks}
