@@ -19,8 +19,8 @@ if __name__ == "__main__":
                 work = json.loads(content)
                 for item in work:       
                     chat_completion = openai.ChatCompletion.create(
-                        model="gpt-4", 
-                        max_tokens=1000,
+                        model="gpt-4o-2024-08-06", 
+                        max_tokens=32000,
                         temperature=0.7, 
                         messages=[{"role": "user", "content": prompt_template.format(completed_tasks=json.dumps(work[item]))}])
                     output = {}
@@ -30,6 +30,24 @@ if __name__ == "__main__":
                     summary += output[value]
                     summary += "\n"
                 print(json.dumps({"content": summary}))
+        if args.assistant == "weekly_review":
+            with(open(f"{args.prompts_dir}/weekly_summary.txt", "r")) as f:
+                prompt_template = f.read()
+                work = json.loads(content)
+                for item in work:       
+                    chat_completion = openai.ChatCompletion.create(
+                        model="gpt-4o-2024-08-06", 
+                        max_tokens=32000,
+                        temperature=0.7, 
+                        messages=[{"role": "user", "content": prompt_template.format(completed_tasks=json.dumps(work[item]))}])
+                    output = {}
+                    output[f"{item}_content"] = chat_completion.choices[0].message.content
+                summary = ""
+                for value in output:
+                    summary += output[value]
+                    summary += "\n"
+                print(json.dumps({"content": summary}))
+
         else:
             print("Unknown assistant", file=sys.stderr)
             sys.exit(1)
