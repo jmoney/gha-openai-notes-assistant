@@ -30,7 +30,7 @@ if __name__ == "__main__":
                     summary += output[value]
                     summary += "\n"
                 print(json.dumps({"content": summary}))
-        if args.assistant == "weekly_review":
+        else if args.assistant == "weekly_review":
             with(open(f"{args.prompts_dir}/weekly_summary.txt", "r")) as f:
                 prompt_template = f.read()
                 work = json.loads(content)
