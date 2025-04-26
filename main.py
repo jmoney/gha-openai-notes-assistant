@@ -20,7 +20,7 @@ if __name__ == "__main__":
                 for item in work:       
                     chat_completion = openai.ChatCompletion.create(
                         model="gpt-4o-2024-08-06", 
-                        max_tokens=32000,
+                        max_tokens=10000,
                         temperature=0.7, 
                         messages=[{"role": "user", "content": prompt_template.format(completed_tasks=json.dumps(work[item]))}])
                     output = {}
@@ -37,7 +37,7 @@ if __name__ == "__main__":
                 for item in work:       
                     chat_completion = openai.ChatCompletion.create(
                         model="gpt-4o-2024-08-06", 
-                        max_tokens=32000,
+                        max_tokens=10000,
                         temperature=0.7, 
                         messages=[{"role": "user", "content": prompt_template.format(completed_tasks=json.dumps(work[item]))}])
                     output = {}
