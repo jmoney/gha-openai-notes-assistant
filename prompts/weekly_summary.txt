@@ -1,0 +1,2 @@
+Please summarieze the following content for a weekly review.  Pay careful attention to tasks that may seem similar and group them together
+{completed_tasks}
